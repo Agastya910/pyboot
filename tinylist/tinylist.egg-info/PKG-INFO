@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: tinylist
+Version: 0.1.0
+Summary: A handmade dynamic array
+Requires-Python: >=3.8
