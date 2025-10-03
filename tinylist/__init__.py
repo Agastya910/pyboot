@@ -30,12 +30,14 @@ class TinyList:
         
         if self._size==self._capacity:
             self._resize()
-        for i in range(self._size, idx-1,-1):
-            self._data[i+1]=self._data[i]
+        for i in range(self._size, idx,-1):
+            self._data[i]=self._data[i-1]
         self._data[idx]=value
         self._size +=1
     
     def pop(self, idx=-1):
+        if self._size == 0:
+            raise IndexError("Cannot pop from an empty list")
         if idx<0:
             idx= self._size + idx
         if idx<0:
@@ -54,9 +56,9 @@ class TinyList:
         """Remove first occurence of value. Raise ValueError if not found."""
         for i in range(self._size):
             if self._data[i]==value:
-                self.pop(i-self._size)
+                self.pop(i)
                 return None
-        return ValueError("Value not found in the list")
+        raise ValueError("Value not found in the list")
     
 
     def __getitem__(self, idx):
