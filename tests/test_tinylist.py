@@ -25,3 +25,18 @@ def test_pop_empty():
     t = TinyList()
     with pytest.raises(IndexError):
         t.pop()
+
+def test_leet_style():
+    t= TinyList()
+    sum=0
+    for i in range(10):
+        t.append(i+1)
+        sum +=i+1
+    assert sum==55
+    t.insert(0,0)
+    assert t[0]==0
+    assert t.pop()==10 and t.__len__()==10
+    t.remove(5)
+    assert 5 not in t
+    return [x**2 for x in t]
+

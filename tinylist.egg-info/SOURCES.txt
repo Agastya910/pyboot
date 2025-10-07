@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+tests/test_tinylist.py
+tinylist/__init__.py
+tinylist/__main__.py
+tinylist.egg-info/PKG-INFO
+tinylist.egg-info/SOURCES.txt
+tinylist.egg-info/dependency_links.txt
+tinylist.egg-info/top_level.txt
