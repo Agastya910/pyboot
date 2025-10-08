@@ -1,12 +1,12 @@
-x=""
-while(True):
+x = ""
+while True:
     print("First (q to quit)")
-    x=input()
-    if x=='q'or x=='Q':
+    x = input()
+    if x == "q" or x == "Q":
         break
-    x=int(x)
+    x = int(x)
     print("Second:")
-    y=int(input())
+    y = int(input())
     print(f"sum {x+y} product {x*y} average {(x+y)/2}")
 
 print("bye")
