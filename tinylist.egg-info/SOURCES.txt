@@ -4,6 +4,7 @@ tests/test_dl_core.py
 tests/test_tinylist.py
 tinylist/__init__.py
 tinylist/__main__.py
+tinylist/config.py
 tinylist/dl_core.py
 tinylist/models.py
 tinylist.egg-info/PKG-INFO

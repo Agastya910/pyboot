@@ -7,3 +7,6 @@ name= "tinylist"
 version = "0.1.0"
 description= "A handmade dynamic array"
 requires-python = ">=3.8"
+
+[tool.setuptools]
+packages=["tinylist"]
