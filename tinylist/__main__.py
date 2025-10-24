@@ -8,7 +8,19 @@ def main() -> None:
     # p_clear= sub.add_parser('clear', help= 'empty the list')
     p_add = sub.add_parser("add", help="append items")
     p_add.add_argument("items", nargs="+", help="strings to store")
+    iris_parser = sub.add_parser("iris", help="Iris dataset utils")
+    iris_parser.add_argument(
+        "--summary", action="store_true", help="print mean and std of numeric colums"
+    )
     args = parser.parse_args()
+
+    if args.cmd == "iris":
+        if args.summary:
+            from iris_summary import show_summary
+
+            show_summary()
+        else:
+            print("Use --summary to see stats")
 
     tl = TinyList()
     if args.cmd == "add":

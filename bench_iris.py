@@ -5,8 +5,10 @@ import numpy as np
 import pandas as pd
 import timeit
 from iris_loader import load_tiny
+from pathlib import Path
 
 cfg = DownloadCFG()
+cfg.save_path = Path("data/big_iris.csv")
 data, cols = load_tiny(cfg.save_path)
 
 
