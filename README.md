@@ -39,3 +39,12 @@
 - implementation of CircularDeque from scratch
 - benchmarked against python deque
 
+### Day 11
+- Fast API endpoint '/iris' -> JSON summary of iris dataset
+- Dockerfile provided (container-ready)
+- curl test passed successfully
+  
+## Day 12
+- MinHeap: O(log n) push/pop, typed, pytest 3/3, ~14× slower than heapq (acceptable)
+- Top-K highest variance features from Iris (petal_length, petal_width)
+- Dockerfile present → container-ready
