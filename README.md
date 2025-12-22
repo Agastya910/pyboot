@@ -48,3 +48,12 @@
 - MinHeap: O(log n) push/pop, typed, pytest 3/3, ~14× slower than heapq (acceptable)
 - Top-K highest variance features from Iris (petal_length, petal_width)
 - Dockerfile present → container-ready
+
+
+
+## Day 18 – Model Export & GPU Serving
+- ONNX export (`cifar_cnn.onnx`, 254 KB) & TorchScript (`cifar_cnn.pt`, 263 KB)
+- FastAPI `/predict` endpoint < 10 ms on GPU
+- Public container:  
+  ```bash
+  docker run --gpus all -p 8001:8001 ghcr.io/agastya910/pyboot:cifar-v0.7.0
