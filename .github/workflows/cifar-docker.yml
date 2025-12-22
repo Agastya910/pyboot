@@ -1,0 +1,39 @@
+name: cifar-docker
+
+on:
+  push:
+    paths:
+      - 'serve_onnx.py'
+      - 'Dockerfile'
+      - '.github/workflows/cifar-docker.yml'
+
+jobs:
+  build-push-test:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: gpu
+          push: true
+          tags: ghcr.io/agastya910/pyboot:cifar-v0.7.0
+      - name: Install Python & deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest requests torchvision
+      - name: Run inference test inside container
+        run: |
+          docker run --rm --gpus all -d -p 8001:8001 ghcr.io/agastya910/pyboot:cifar-v0.7.0
+          python -m pytest tests/test_inference.py -v
