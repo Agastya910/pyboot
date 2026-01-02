@@ -57,3 +57,9 @@
 - Public container:  
   ```bash
   docker run --gpus all -p 8001:8001 ghcr.io/agastya910/pyboot:cifar-v0.7.0
+
+
+## Day 19 – Transformer from Scratch (NumPy only)
+- Multi-head self-attention, causal mask, LayerNorm, FFN – all typed by hand
+- Character-level Shakespeare generation, beam-search decoder
+- Zero PyTorch/Torch imports inside model; pure NumPy + softmax

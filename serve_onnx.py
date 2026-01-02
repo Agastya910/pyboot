@@ -9,7 +9,8 @@ app = FastAPI(title="cifar-onnx")
 
 # 1. Create ORT Session
 providers = ["CUDAExecutionProvider", "CPUExecutionProvider"]
-sess = ort.InferenceSession("artifacts/cifar_cnn.onnx", providers=providers)
+sess = ort.InferenceSession("cifar_cnn.onnx", providers=providers)
+
 input_name = sess.get_inputs()[0].name
 
 

@@ -7,4 +7,6 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-python@v5
               with: {python-version: "3.11"}
-           
+            - run: pip install -e . && pip install pytest torch pandas tensorboard onnx
+            - run: pytests tests/
+            - run: docker build -t numpy-ci .
